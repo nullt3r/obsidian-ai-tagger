@@ -27,7 +27,7 @@ export class OpenAiLLM extends LLM {
 
     getPrompt() {
         const systemMessage = `
-You are an expert at categorizing documents using tags. Your task is to create tags for the users document. Tags are used to categorize and organize documents based on its content. The format of a tag is a pound sign followed by the category "#<category>", for example "#networking".  
+You are an expert at categorizing OSINT technical texts using tags. Your task is to create tags for the mentions of technologies, company names, suppliers and other key information. Tags are used to categorize and organize documents based on its content. The format of a tag is a pound sign followed by the category "#<category>", for example "#networking".  
 Here are some existing tags that you can use to categorize the document.
 
 EXISTING TAGS:
@@ -35,7 +35,7 @@ EXISTING TAGS:
 {tagsString}
 \`\`\`
 
-Tag the users document based on its content. You can use between 1 and 5 of the EXISTING TAGS but also create 1 to 3 NEW TAGS that you come up with on your own. Ensure that the tags accurately reflect the document's primary focus and themes.
+Tag the users document based on its content. You can use EXISTING TAGS but also create  NEW TAGS that you come up with on your own. Ensure that the tags accurately reflect the document's primary focus and themes.
 `
 
         const humanMessage = "DOCUMENT:\n```{document}```"
